@@ -19,6 +19,9 @@ namespace MP_01
         public Person(Guid guid, string lastName, string phoneNumber, string email, Adress? adress, params string[] names) =>
             (Identity, Names, LastName, PhoneNumber, Email, Adress) = (guid, names, lastName, phoneNumber, email, adress);
 
+        public static bool operator ==(Person p1, Person p2) => p1.Identity == p2.Identity;
+        public static bool operator !=(Person p1, Person p2) => p1.Identity != p2.Identity;
+
         public override string ToString()
         {
             var builder = new StringBuilder();
@@ -45,8 +48,6 @@ namespace MP_01
 
             return builder.ToString();
         }
-
-
     }
     
     public struct Adress
@@ -59,5 +60,10 @@ namespace MP_01
 
         public Adress(string place, string houseNumber, string zipCode) =>
             (Place, HouseNumber, ZipCode) = (place, houseNumber, zipCode);
+
+        public override string ToString()
+        {
+            return Place + " " + HouseNumber + " " + ZipCode;
+        }
     }
 }

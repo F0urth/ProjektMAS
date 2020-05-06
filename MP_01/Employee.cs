@@ -11,8 +11,6 @@ namespace MP_01
     
     public class Employee : Person
     {
-        
-
         private static double _additonalPercent = 1.0;
         public static double AdditionalPercent 
         {
@@ -36,8 +34,6 @@ namespace MP_01
             get => _priceNetto + (_priceNetto * AdditionalPercent); 
             set => _priceNetto = value / _vatRate;
         }
-
-
 
         public Employee(Guid guid, string lastName, string phoneNumber, string email, Adress? adress, double salaryGross, params string[] names) 
             : base(guid, lastName, phoneNumber, email, adress, names)
