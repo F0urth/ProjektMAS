@@ -5,11 +5,11 @@ using System.Text;
 
 
 /**
-  ******************
+  *********************************
   * @author F0urth *
-  ******************
+  *********************************
   * @date - 5/6/2020 6:11:13 PM *
-  ******************
+  *********************************
 **/
 
 namespace MP_02.Logic
@@ -19,17 +19,24 @@ namespace MP_02.Logic
         public string Pesel { get; }
         public string Name { get; }
         public ISet<Movie> ApperedInMovies { get; }
+        public IList<RealityShow> RealityShows { get; }
+
+
         public Actor(string name, string pesel)
         {
             Name = name;
             Pesel = pesel;
             ApperedInMovies = new HashSet<Movie>();
+            RealityShows = new List<RealityShow>();
         }
     }
 
     public class Movie
     {
         public ISet<Actor> ApperdeActors { get; }
+
+        
+
         public string Name { get; }
         public Movie(string name)
         {
@@ -78,6 +85,12 @@ namespace MP_02.Logic
     public class RealityShow
     {
         public string StationName { get; }
-        public RealityShow(string stationName) => StationName = stationName;
+        public IList<Actor> Actors { get; }
+
+        public RealityShow(string stationName)
+        {
+            StationName = stationName;
+            Actors = new List<Actor>();
+        }
     }
 }

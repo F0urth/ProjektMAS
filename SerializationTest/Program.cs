@@ -11,6 +11,13 @@ namespace SerializationTest
     {
         static void Main(string[] args)
         {
+            var arr = new[] {1, 2, 3, 4, 5, 6, 7};
+            Console.WriteLine(arr.Length);    
+        }
+
+        #region old
+        static void Test()
+        {
             var path = @"./testFile.json";
             var path2 = @"./testFile2.dat";
             var list = new List<TestToSerialize>();
@@ -29,7 +36,7 @@ namespace SerializationTest
             for (int i = 0; i < list.Count; i++)
             {
                 Console.WriteLine($"Att1: [Before: {list[i].Attribute1}, Affter: {objDes[i].Attribute1}], " +
-                $"Att2: [Before: {list[i].Attribute2}, Affter: {objDes[i].Attribute2}]");
+                                  $"Att2: [Before: {list[i].Attribute2}, Affter: {objDes[i].Attribute2}]");
             }
 
             SerializeData(path2, list);
@@ -39,7 +46,6 @@ namespace SerializationTest
                 Console.WriteLine($"Attribute1: {ele.Attribute1}, Attribute2: {ele.Attribute2} ");
             }
         }
-
 
         static void SerializeData(string path, List<TestToSerialize> data)
         {
@@ -83,7 +89,7 @@ namespace SerializationTest
             }
         }
     }
-
+    #endregion
     
     class TestToSerialize
     {
@@ -96,4 +102,5 @@ namespace SerializationTest
             Attribute2 = attribute2;
         }
     }
+     
 }
